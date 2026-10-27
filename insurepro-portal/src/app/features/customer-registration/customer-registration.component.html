@@ -1,0 +1,52 @@
+<form [formGroup]="form">
+
+  <input
+    type="text"
+    placeholder="Customer Number"
+    formControlName="customerNumber">
+
+  <br><br>
+
+  <input
+    type="text"
+    placeholder="Name"
+    formControlName="name">
+
+  <br><br>
+
+  <input
+    type="email"
+    placeholder="Email"
+    formControlName="email">
+
+  <br><br>
+
+  <input
+    type="text"
+    placeholder="Phone"
+    formControlName="phone">
+
+  <br><br>
+
+  <select formControlName="status">
+    <option value="Active">Active</option>
+    <option value="Inactive">Inactive</option>
+  </select>
+
+  <br><br>
+
+  <button
+    type="button"
+    (click)="save()">
+
+    Save Customer
+
+  </button>
+
+</form>
+
+
+
+
+
+

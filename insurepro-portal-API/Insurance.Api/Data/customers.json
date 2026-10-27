@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "customerNumber": "CUST001",
+    "name": "John Smith g",
+    "email": "john.smith@example.com",
+    "phone": "9876543210",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "customerNumber": "CUST002",
+    "name": "David Miller",
+    "email": "david.miller@example.com",
+    "phone": "9123456789",
+    "status": "Inactive"
+  },
+  {
+    "id": 3,
+    "customerNumber": "CUST003",
+    "name": "Michael Johnson",
+    "email": "michael.johnson@example.com",
+    "phone": "9012345678",
+    "status": "Active"
+  },
+  {
+    "id": 4,
+    "customerNumber": "CUST004",
+    "name": "Sarah Williams",
+    "email": "sarah.williams@example.com",
+    "phone": "9234567890",
+    "status": "Active"
+  },
+  {
+    "id": 5,
+    "customerNumber": "CUST005",
+    "name": "Robert Brown",
+    "email": "robert.brown@example.com",
+    "phone": "9345678901",
+    "status": "Inactive"
+  },
+  {
+    "id": 6,
+    "customerNumber": "CUST006",
+    "name": "Emily Davis",
+    "email": "emily.davis@example.com",
+    "phone": "9456789012",
+    "status": "Active"
+  },
+  {
+    "id": 7,
+    "customerNumber": "CUST007",
+    "name": "James Wilson",
+    "email": "james.wilson@example.com",
+    "phone": "9567890123",
+    "status": "Inactive"
+  },
+  {
+    "id": 8,
+    "customerNumber": "CUST008",
+    "name": "Olivia Taylor2",
+    "email": "olivia.taylor@example.com",
+    "phone": "9678901234",
+    "status": "Active"
+  },
+  {
+    "id": 9,
+    "customerNumber": "CUST009",
+    "name": "William Anderson",
+    "email": "william.anderson@example.com",
+    "phone": "9789012345",
+    "status": "Active"
+  },
+  {
+    "id": 10,
+    "customerNumber": "CUST010",
+    "name": "Sophia Thomas",
+    "email": "sophia.thomas@example.com",
+    "phone": "9890123456",
+    "status": "Inactive"
+  },
+  {
+    "id": 11,
+    "customerNumber": "CUST011",
+    "name": "Daniel Jackson",
+    "email": "daniel.jackson@example.com",
+    "phone": "9901234567",
+    "status": "Active"
+  },
+  {
+    "id": 12,
+    "customerNumber": "CUST012",
+    "name": "Emma White",
+    "email": "emma.white@example.com",
+    "phone": "9011122233",
+    "status": "Inactive"
+  },
+  {
+    "id": 13,
+    "customerNumber": "CUST013",
+    "name": "Kishan Peddelli",
+    "email": "Kishan.Peddelli@gmail.com",
+    "phone": "9876543210",
+    "status": "Active"
+  },
+  {
+    "id": 14,
+    "customerNumber": "CUST014",
+    "name": "moiz",
+    "email": "moiz@gmail.com",
+    "phone": "1234567890",
+    "status": "Active"
+  },
+  {
+    "id": 15,
+    "customerNumber": "CUST015",
+    "name": "Narseh",
+    "email": "Narseh@gmail.com",
+    "phone": "9876543234",
+    "status": "Active"
+  },
+  {
+    "id": 16,
+    "customerNumber": "CUST016",
+    "name": "ABCD",
+    "email": "abcd@gmail.com",
+    "phone": "0987654321",
+    "status": "Active"
+  }
+]

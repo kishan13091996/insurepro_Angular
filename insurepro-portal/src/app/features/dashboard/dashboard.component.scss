@@ -1,0 +1,18 @@
+.customer-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+}
+
+.customer-table {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.customer-form {
+  flex: 0 0 350px;
+}
+

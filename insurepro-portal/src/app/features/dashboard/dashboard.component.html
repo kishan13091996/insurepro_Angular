@@ -1,0 +1,117 @@
+<div class="customer-container">
+  <!-- ============================== -->
+  <!-- CUSTOMER TABLE -->
+  <!-- ============================== -->
+
+  <div class="customer-table">
+    <h2>Well come {{authState.userName()}}</h2>
+    <h2>Customer List</h2>
+
+    <!-- Search -->
+
+    <input type="text" placeholder="Search" (input)="onSearch($event)" />
+
+    <table border="1" cellpadding="10" cellspacing="0">
+      <thead>
+        <tr>
+          <th>
+            <button (click)="sortCustomers('customerNumber')">Customer Number ↑↓</button>
+          </th>
+
+          <th>
+            <button (click)="sortCustomers('name')">Name ↑↓</button>
+          </th>
+
+          <th>
+            <button (click)="sortCustomers('email')">Email ↑↓</button>
+          </th>
+
+          <th>
+            <button (click)="sortCustomers('phone')">Phone ↑↓</button>
+          </th>
+
+          <th>
+            <button (click)="sortCustomers('status')">Status ↑↓</button>
+          </th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (customer of paginatedCustomers(); track customer.id) {
+          <tr>
+            <td>
+              {{ customer.customerNumber }}
+            </td>
+
+            <td>
+              {{ customer.name }}
+            </td>
+
+            <td>
+              {{ customer.email }}
+            </td>
+
+            <td>
+              {{ customer.phone }}
+            </td>
+
+            <td>
+              {{ customer.status }}
+            </td>
+
+            <td>
+              <button type="button" (click)="onEdit(customer)">Edit</button>
+
+              <button type="button" (click)="onDelete(customer.id)">Delete</button>
+            </td>
+          </tr>
+
+        } @empty {
+          <tr>
+            <td colspan="6">No customers found.</td>
+          </tr>
+        }
+
+        <!-- Pagination -->
+
+        <tr>
+          <td colspan="6">
+            <button (click)="previousPage()" [disabled]="currentPage() === 1">Previous</button>
+
+            <span>
+              Page
+              {{ currentPage() }}
+              of
+              {{ totalPages() }}
+            </span>
+
+            <button (click)="nextPage()" [disabled]="currentPage() === totalPages()">Next</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+            <label>Page Size : </label>
+            <select (change)="onPageSizeChange($event)">
+              <option value=5>5</option>
+              <option value=10>10</option>
+              <option value=15>15</option>
+              <option value=20>20</option>
+            </select>
+          </td>
+         
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================== -->
+  <!-- CUSTOMER REGISTRATION -->
+  <!-- ============================== -->
+
+  <div class="customer-form">
+    <h2>Customer Registration</h2>
+
+    <app-customer-registration [customer]="selectedCustomer()" (saved)="onSave()">
+    </app-customer-registration>
+  </div>
+</div>

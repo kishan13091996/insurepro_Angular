@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "admin123",
+    "role": "Admin",
+    "refreshToken": "kHZ3JWxNSvOYJoBEbOWTVou1P/sVq\u002BfyX/u7kNGxRfFdocpsSQTMVZB95Fm4sEG9TsJkAKO8HcundLc46V3meQ==",
+    "refreshTokenExpiry": "2026-11-03T08:28:11.8440095Z"
+  },
+  {
+    "id": 2,
+    "username": "manager",
+    "password": "manager123",
+    "role": "Manager",
+    "refreshToken": "",
+    "refreshTokenExpiry": null
+  },
+  {
+    "id": 3,
+    "username": "agent",
+    "password": "agent123",
+    "role": "Agent",
+    "refreshToken": "",
+    "refreshTokenExpiry": null
+  }
+]
