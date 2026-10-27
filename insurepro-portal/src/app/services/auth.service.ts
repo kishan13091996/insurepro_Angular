@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { LoginRequest } from '../models/login-request';
-import {  BehaviorSubject,Observable,tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 import { LoginResponse } from '../models/login-response';
 import { AuthStateServiceService } from './auth-state-service.service';
 
@@ -13,24 +13,24 @@ export class AuthService {
   public isRefreshing = false;
   public refreshTokenSubject = new BehaviorSubject<string | null>(null);
 
-
   login(request: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}/login`, request, {
       withCredentials: true,
     });
   }
 
-refreshToken(): Observable<LoginResponse> {
-  return this.http.post<LoginResponse>(`${this.apiUrl}/refresh`,{},{withCredentials: true})
-   .pipe(tap(response => {
-      sessionStorage.setItem('token',response.accessToken);
-      sessionStorage.setItem('role',response.role);
-    })
+  refreshToken(): Observable<LoginResponse> {
+    return this.http
+      .post<LoginResponse>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
+      .pipe(
+        tap((response) => {
+          sessionStorage.setItem('token', response.accessToken);
+          sessionStorage.setItem('role', response.role);
+        }),
+      );
+  }
 
-  );
-}
-
-  saveUserData(logInRes: LoginResponse) {
+  saveUserData(logInRes: LoginResponse): void {
     sessionStorage.setItem('token', logInRes.accessToken);
     sessionStorage.setItem('role', logInRes.role);
   }
@@ -38,11 +38,12 @@ refreshToken(): Observable<LoginResponse> {
   getToken(): string | null {
     return sessionStorage.getItem('token');
   }
+
   getRoleName(): string | null {
     return sessionStorage.getItem('role');
   }
 
-  logOut() {
+  logOut(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('role');
   }
@@ -51,23 +52,17 @@ refreshToken(): Observable<LoginResponse> {
     return !!this.getToken();
   }
 
-  initializeAuth(): Observable<LoginResponse> {
-
-    return this.refreshToken()
-      .pipe(
-
-        tap(response => {
-
-          this.authState.setUser(
-            response.role,
-            response.role
-          );
-
-        })
-
-      );
-
+  initializeAuth(): Observable<LoginResponse | null> {
+    return this.refreshToken().pipe(
+      tap((response) => {
+        this.authState.setUser(response.role, response.role);
+      }),
+      catchError(() => {
+        // A missing or expired refresh cookie is a normal unauthenticated startup state.
+        this.logOut();
+        this.authState.clearUser();
+        return of(null);
+      }),
+    );
   }
-
-
 }
