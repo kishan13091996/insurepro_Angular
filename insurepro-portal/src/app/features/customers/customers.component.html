@@ -1,2 +1,70 @@
-<p>customers works!</p>
-<a routerLink="/customer-registration" > Register Customer</a>
+@if (isLoading()) {
+  <p>Loading customers...</p>
+}
+
+@if (errorMessage()) {
+  <p class="error-message">{{ errorMessage() }}</p>
+}
+
+<div class="customer-container">
+  <section class="customer-table">
+    <h2>Customer List</h2>
+
+    <input type="text" placeholder="Search customers..." (input)="onSearch($event)" />
+
+    <table border="1" cellpadding="10" cellspacing="0">
+      <thead>
+        <tr>
+          <th><button (click)="sortCustomers('customerNumber')">Customer Number ↑↓</button></th>
+          <th><button (click)="sortCustomers('name')">Name ↑↓</button></th>
+          <th><button (click)="sortCustomers('email')">Email ↑↓</button></th>
+          <th><button (click)="sortCustomers('phone')">Phone ↑↓</button></th>
+          <th><button (click)="sortCustomers('status')">Status ↑↓</button></th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (customer of paginatedCustomers(); track customer.id) {
+          <tr>
+            <td>{{ customer.customerNumber }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.status }}</td>
+            <td>
+              <button type="button" (click)="onEdit(customer)">Edit</button>
+              <button type="button" (click)="onDelete(customer.id)">Delete</button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6">No customers found.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage() === 1">Previous</button>
+
+      Page {{ currentPage() }} of {{ totalPages() }}
+
+      <button (click)="nextPage()" [disabled]="currentPage() === totalPages()">Next</button>
+
+      <label for="pageSize">Page size:</label>
+      <select id="pageSize" (change)="onPageSizeChange($event)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="customer-form">
+    <h2>{{ selectedCustomer() ? 'Edit Customer' : 'Register Customer' }}</h2>
+
+    <app-customer-registration [customer]="selectedCustomer()" (saved)="onSave()" />
+  </section>
+</div>

@@ -1,18 +1,12 @@
-.customer-container {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start;
-  gap: 30px;
-  width: 100%;
+
+.dashboard-welcome {
+  padding: 24px;
 }
 
-.customer-table {
-  flex: 1;
-  min-width: 0;
-  overflow-x: auto;
+.dashboard-welcome h1 {
+  margin-bottom: 12px;
 }
 
-.customer-form {
-  flex: 0 0 350px;
+.dashboard-welcome p {
+  color: #666;
 }
-

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "customerNumber": "CUST001",
-    "name": "John Smith g",
+    "name": "John Smith gw",
     "email": "john.smith@example.com",
     "phone": "9876543210",
     "status": "Active"
@@ -125,6 +125,22 @@
     "name": "ABCD",
     "email": "abcd@gmail.com",
     "phone": "0987654321",
+    "status": "Active"
+  },
+  {
+    "id": 17,
+    "customerNumber": "CUST017",
+    "name": "aaaaa",
+    "email": "ssss@ss.com",
+    "phone": "1234567890",
+    "status": "Inactive"
+  },
+  {
+    "id": 18,
+    "customerNumber": "CUST018",
+    "name": "dfsdf",
+    "email": "sdfsdf@ss.com",
+    "phone": "123789873",
     "status": "Active"
   }
 ]
